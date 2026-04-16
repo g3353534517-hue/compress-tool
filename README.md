@@ -1,20 +1,20 @@
 # Compress Tool 📦
 
-A powerful command-line tool for compressing and extracting archive files. Supports multiple formats including ZIP, TAR, TAR.GZ, 7Z, and RAR.
+一个强大的命令行工具，用于压缩和解压归档文件。支持多种格式，包括 ZIP、TAR、TAR.GZ、7Z 和 RAR。
 
-## Features ✨
+## 功能特性 ✨
 
-- **Multiple Formats**: Handle ZIP, TAR, TAR.GZ, TAR.BZ2, 7Z, RAR
-- **Easy Compression**: One-command compression with automatic format detection
-- **Smart Extraction**: Extract any supported archive format to specified directory
-- **Content Listing**: Preview archive contents without extraction
-- **Cross-Platform**: Works on Linux, macOS, and Windows (WSL)
+- **多格式支持**: 处理 ZIP、TAR、TAR.GZ、TAR.BZ2、7Z、RAR
+- **简单压缩**: 一键压缩，自动格式检测
+- **智能解压**: 解压任何支持的归档格式到指定目录
+- **内容预览**: 在不解压的情况下查看归档内容
+- **跨平台**: 支持 Linux、macOS 和 Windows (WSL)
 
-## Installation 🔧
+## 安装 🔧
 
-### Prerequisites
+### 先决条件
 
-Install required compression tools:
+安装所需的压缩工具：
 
 **Ubuntu/Debian:**
 ```bash
@@ -31,79 +31,79 @@ brew install zip unzip gnu-tar p7zip unrar
 sudo yum install zip unzip tar gzip p7zip-plugins unrar
 ```
 
-### Install Compress Tool
+### 安装 Compress Tool
 
 ```bash
-# Clone the repository
+# 克隆仓库
 git clone https://github.com/your-username/compress-tool.git
 cd compress-tool
 
-# Make the script executable
+# 赋予脚本执行权限
 chmod +x scripts/compress.sh
 
-# Optional: Add to PATH for global access
+# 可选：添加到 PATH 以便全局访问
 sudo ln -s $(pwd)/scripts/compress.sh /usr/local/bin/compress-tool
 ```
 
-## Usage 🚀
+## 使用方法 🚀
 
-### Basic Commands
+### 基本命令
 
 ```bash
-# Compress a directory or file
-./scripts/compress.sh compress <input> <output> [format]
+# 压缩目录或文件
+./scripts/compress.sh compress <输入> <输出> [格式]
 
-# Extract an archive
-./scripts/compress.sh extract <archive> [destination]
+# 解压归档文件
+./scripts/compress.sh extract <归档文件> [目标目录]
 
-# List archive contents
-./scripts/compress.sh list <archive>
+# 列出归档内容
+./scripts/compress.sh list <归档文件>
 ```
 
-### Examples
+### 使用示例
 
-#### Compression Examples
+#### 压缩示例
 
 ```bash
-# Create ZIP archive (default)
+# 创建 ZIP 归档（默认）
 ./scripts/compress.sh compress my-folder/ backup.zip
 
-# Create TAR.GZ archive
+# 创建 TAR.GZ 归档
 ./scripts/compress.sh compress my-folder/ backup.tar.gz tar.gz
 
-# Create 7Z archive (best compression)
+# 创建 7Z 归档（最佳压缩率）
 ./scripts/compress.sh compress my-folder/ backup.7z 7z
 
-# Create TAR archive
+# 创建 TAR 归档
 ./scripts/compress.sh compress my-file.txt archive.tar tar
 ```
 
-#### Extraction Examples
+#### 解压示例
 
 ```bash
-# Extract to current directory
+# 解压到当前目录
 ./scripts/compress.sh extract backup.zip
 
-# Extract to specific directory
+# 解压到指定目录
 ./scripts/compress.sh extract backup.tar.gz /path/to/extract/
 
-# Extract 7Z archive
+# 解压 7Z 归档
 ./scripts/compress.sh extract archive.7z ./extracted/
 ```
 
-#### List Contents
+#### 查看内容
 
 ```bash
-# View ZIP contents
+# 查看 ZIP 内容
 ./scripts/compress.sh list backup.zip
 
-# View TAR.GZ contents
+# 查看 TAR.GZ 内容
 ./scripts/compress.sh list backup.tar.gz
 ```
 
-## Supported Formats 📋
+## 支持的格式 📋
 
-| Format | Extension | Command |
+| 格式 | 扩展名 | 命令 |
 |--------|-----------|---------|
 | ZIP | `.zip` | `compress input output.zip` |
 | TAR | `.tar` | `compress input output.tar tar` |
@@ -112,52 +112,52 @@ sudo ln -s $(pwd)/scripts/compress.sh /usr/local/bin/compress-tool
 | 7Z | `.7z` | `compress input output.7z 7z` |
 | RAR | `.rar` | `compress input output.rar rar` |
 
-## Advanced Usage 💡
+## 高级用法 💡
 
-### Auto-format Detection
+### 自动格式检测
 
-The tool automatically detects format based on file extension when extracting:
+工具在解压时会根据文件扩展名自动检测格式：
 
 ```bash
 ./scripts/compress.sh extract any-archive-file.*
 ```
 
-### Batch Processing
+### 批量处理
 
-Process multiple files with shell scripting:
+使用 shell 脚本处理多个文件：
 
 ```bash
-# Compress all directories in current folder
+# 压缩当前文件夹中的所有目录
 for dir in */; do
     ./scripts/compress.sh compress "$dir" "${dir%/}.zip"
 done
 ```
 
-## Error Handling ⚠️
+## 错误处理 ⚠️
 
-Common issues and solutions:
+常见问题及解决方案：
 
-- **"Command not found"**: Install required compression tools (see Installation)
-- **"Permission denied"**: Check file permissions or use `sudo`
-- **"Corrupted archive"**: Archive may be incomplete or damaged
-- **"Disk full"**: Ensure sufficient disk space for extraction
+- **"Command not found"**: 安装所需的压缩工具（参见安装部分）
+- **"Permission denied"**: 检查文件权限或使用 `sudo`
+- **"Corrupted archive"**: 归档文件可能不完整或已损坏
+- **"Disk full"**: 确保有足够的磁盘空间进行解压
 
-## Contributing 🤝
+## 贡献 🤝
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork 本仓库
+2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 创建 Pull Request
 
-## License 📄
+## 许可证 📄
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
 
-## Author 👤
+## 作者 👤
 
-Created with ❤️ by [Your Name]
+由 [Your Name] 创建 ❤️
 
 ---
 
-**Note**: This tool wraps standard compression utilities (`zip`, `tar`, `7z`, `rar`) providing a unified interface for common archive operations.
+**注意**: 此工具封装了标准压缩工具 (`zip`, `tar`, `7z`, `rar`)，为常见的归档操作提供统一接口。
